@@ -1,0 +1,6 @@
+server:
+  port: 8881
+  compression:
+    enabled: true
+    mime-types: [application/json,text/plain]
+    min-response-size: 500
