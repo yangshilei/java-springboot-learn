@@ -22,8 +22,6 @@ public class RoleController {
   @ApiOperation(value = "测试接口",notes = "测试接口")
   @PostMapping("/get/users")
   String test(@RequestBody User request){
-
-    // git仓库，master主支代码拉到dev分支上
     return "hello world";
   }
 
