@@ -1,6 +1,7 @@
 package com.multithread.learn.dto;
 
 import com.alibaba.fastjson.JSONObject;
+import com.multithread.learn.annotation.MyTest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,12 +17,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
+  @MyTest(value = "xiaowang")
   private String name;
 
   private Integer age;
-
+  @MyTest(value = "南京")
   private String message;
-
+  @MyTest(value = "写代码")
   private String hobby;
 
   @Override

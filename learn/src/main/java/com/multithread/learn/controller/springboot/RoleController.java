@@ -1,6 +1,7 @@
 package com.multithread.learn.controller.springboot;
 
 import com.multithread.learn.dto.User;
+import com.multithread.learn.factory.UserAnnotationFactory;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,5 +26,9 @@ public class RoleController {
     return "hello world";
   }
 
+  public static void main(String[] args) {
+    User user = UserAnnotationFactory.createUser();
+    System.out.println(user.getName());
+  }
 
 }
