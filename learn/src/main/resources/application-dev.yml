@@ -1,0 +1,8 @@
+animal:
+  dog:
+    name: tom
+    age: 20
+    play:
+    - swim
+    - football
+    - drup

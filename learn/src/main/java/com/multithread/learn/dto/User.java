@@ -5,6 +5,12 @@ import com.multithread.learn.annotation.MyTest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 
 /**
  * Description：
@@ -16,15 +22,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-
-  @MyTest(value = "xiaowang")
+  @Length(max = 10, message = "名称长度不能超过10个字符")
   private String name;
 
+  @NotNull(message = "年龄不能为null")
   private Integer age;
-  @MyTest(value = "南京")
+
+  @Length(max = 50, message = "地址长度不能超过50个字符")
   private String message;
-  @MyTest(value = "写代码")
+
   private String hobby;
+
+  @Email(message = "邮件地址不符合要求")
+  private String email;
 
   @Override
   public String toString () {

@@ -4,3 +4,10 @@ server:
     enabled: true
     mime-types: [application/json,text/plain]
     min-response-size: 500
+
+spring:
+  profiles:
+    active: dev
+
+
+
