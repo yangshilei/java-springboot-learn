@@ -35,6 +35,7 @@ public class RoleController {
   @PostMapping("/get/users")
   Object test(@RequestBody @Valid User request){
     System.out.println(123);
+    // application-dev.yml配置文件中配置了狗的属性信息
     return dogConfig.getPlay();
   }
 
