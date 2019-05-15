@@ -31,8 +31,6 @@ public class User {
   @Length(max = 50, message = "地址长度不能超过50个字符")
   private String message;
 
-  private String hobby;
-
   @Email(message = "邮件地址不符合要求")
   private String email;
 

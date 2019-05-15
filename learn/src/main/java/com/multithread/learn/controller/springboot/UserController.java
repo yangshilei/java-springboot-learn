@@ -3,6 +3,8 @@ package com.multithread.learn.controller.springboot;
 import com.multithread.learn.config.DogConfig;
 import com.multithread.learn.dto.User;
 import com.multithread.learn.factory.UserAnnotationFactory;
+import com.multithread.learn.service.UserService;
+import com.multithread.learn.share.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +23,30 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("")
-@Api(tags = "角色接口控制层")
-public class RoleController {
+@Api(tags = "用户接口")
+public class UserController {
 
   private final DogConfig dogConfig;
+  private final UserService userService;
 
   @Autowired
-  public RoleController(DogConfig dogConfig){
+  public UserController(DogConfig dogConfig,UserService userService){
     this.dogConfig = dogConfig;
+    this.userService = userService;
   }
 
   @ApiOperation(value = "测试接口",notes = "测试接口")
-  @PostMapping("/get/users")
+  @PostMapping("/get/test")
   Object test(@RequestBody @Valid User request){
     System.out.println(123);
     // application-dev.yml配置文件中配置了狗的属性信息
     return dogConfig.getPlay();
+  }
+
+  @ApiOperation(value = "获取公司用户列表",notes = "获取公司用户列表")
+  @PostMapping("/get/users")
+  Result getUsers(@RequestBody Integer companyId){
+    return  userService.getUsers(companyId);
   }
 
 
