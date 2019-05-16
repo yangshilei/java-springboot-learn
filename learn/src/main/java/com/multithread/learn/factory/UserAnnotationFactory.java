@@ -1,7 +1,7 @@
 package com.multithread.learn.factory;
 
 import com.multithread.learn.annotation.MyTest;
-import com.multithread.learn.dto.User;
+import com.multithread.learn.dto.UserDto;
 
 import java.lang.reflect.Method;
 
@@ -13,9 +13,9 @@ import java.lang.reflect.Method;
  */
 public class UserAnnotationFactory {
 
-  public static User createUser(){
-    User user = new User();
-    Method[] methods = User.class.getMethods();
+  public static UserDto createUser(){
+    UserDto user = new UserDto();
+    Method[] methods = UserDto.class.getMethods();
     try {
       for(Method method : methods){
         if(method.isAnnotationPresent(MyTest.class)){

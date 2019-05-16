@@ -1,9 +1,6 @@
 package com.multithread.learn.service;
 
-import com.multithread.learn.dto.User;
 import com.multithread.learn.share.Result;
-
-import java.util.List;
 
 public interface UserService {
 

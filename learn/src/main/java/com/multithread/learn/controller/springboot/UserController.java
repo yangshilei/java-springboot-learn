@@ -1,8 +1,7 @@
 package com.multithread.learn.controller.springboot;
 
 import com.multithread.learn.config.DogConfig;
-import com.multithread.learn.dto.User;
-import com.multithread.learn.factory.UserAnnotationFactory;
+import com.multithread.learn.dto.UserDto;
 import com.multithread.learn.service.UserService;
 import com.multithread.learn.share.Result;
 import io.swagger.annotations.Api;
@@ -37,7 +36,7 @@ public class UserController {
 
   @ApiOperation(value = "测试接口",notes = "测试接口")
   @PostMapping("/get/test")
-  Object test(@RequestBody @Valid User request){
+  Object test(@RequestBody @Valid UserDto request){
     System.out.println(123);
     // application-dev.yml配置文件中配置了狗的属性信息
     return dogConfig.getPlay();

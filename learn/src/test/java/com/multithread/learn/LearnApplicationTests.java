@@ -1,6 +1,6 @@
 package com.multithread.learn;
 
-import com.multithread.learn.dto.User;
+import com.multithread.learn.dto.UserDto;
 import com.multithread.learn.factory.UserAnnotationFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ public class LearnApplicationTests {
     // 注解自动引入测试
     System.out.println(123);
     // User 属性上未添加测试注解，次处不生效
-    User user = UserAnnotationFactory.createUser();
+    UserDto user = UserAnnotationFactory.createUser();
     System.out.println(user.getName());
   }
 
