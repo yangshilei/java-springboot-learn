@@ -1,5 +1,7 @@
 package com.multithread.learn.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.multithread.learn.dao.UserDao;
 import com.multithread.learn.dto.UserDto;
 import com.multithread.learn.pojo.UserReq;
@@ -33,10 +35,10 @@ public class UserServiceImpl implements UserService {
    * 查询公司下用户列表
    */
   @Override
-  public Result getUsers(Integer companyId) {
-    log.debug("进入获取公司员工列表方法==={}",companyId);
+  public Result getUsers(UserReq request) {
+    log.debug("进入获取公司员工列表方法==={}",request);
     List<UserReq> list = new ArrayList<>();
-    List<UserDto> users = userDao.selectUsers(companyId);
+    List<UserDto> users = userDao.selectUsers(request.getCompanyId());
     log.debug("查询出的用户集合==={}",users);
     return Result.ok(users);
   }

@@ -2,6 +2,7 @@ package com.multithread.learn.controller.springboot;
 
 import com.multithread.learn.config.DogConfig;
 import com.multithread.learn.dto.UserDto;
+import com.multithread.learn.pojo.UserReq;
 import com.multithread.learn.service.UserService;
 import com.multithread.learn.share.Result;
 import io.swagger.annotations.Api;
@@ -44,8 +45,8 @@ public class UserController {
 
   @ApiOperation(value = "获取公司用户列表",notes = "获取公司用户列表")
   @PostMapping("/get/users")
-  Result getUsers(@RequestBody Integer companyId){
-    return  userService.getUsers(companyId);
+  Result getUsers(@RequestBody UserReq request){
+    return  userService.getUsers(request);
   }
 
 

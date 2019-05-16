@@ -1,5 +1,6 @@
 package com.multithread.learn.service;
 
+import com.multithread.learn.pojo.UserReq;
 import com.multithread.learn.share.Result;
 
 public interface UserService {
@@ -9,7 +10,7 @@ public interface UserService {
    * @param companyId
    * @return
    */
-  Result getUsers(Integer companyId);
+  Result getUsers(UserReq companyId);
 
 
 }

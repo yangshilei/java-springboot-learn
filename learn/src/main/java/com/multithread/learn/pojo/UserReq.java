@@ -1,6 +1,7 @@
 package com.multithread.learn.pojo;
 
 import com.alibaba.fastjson.JSONObject;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,17 +16,25 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 public class UserReq {
+  @ApiModelProperty(value = "姓名")
   @Length(max = 10, message = "名称长度不能超过10个字符")
   private String name;
 
-  @NotNull(message = "年龄不能为null")
+  @ApiModelProperty(value = "年龄")
   private Integer age;
 
-  @Length(max = 50, message = "地址长度不能超过50个字符")
-  private String message;
-
+  @ApiModelProperty(value = "邮箱")
   @Email(message = "邮件地址不符合要求")
   private String email;
+
+  @NotNull
+  private Integer companyId;
+
+  @ApiModelProperty(value = "页码")
+  private Integer page;
+
+  @ApiModelProperty(value = "页值大小")
+  private Integer pageSize;
 
   @Override
   public String toString () {
