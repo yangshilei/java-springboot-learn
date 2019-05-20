@@ -35,8 +35,9 @@ public class UserController {
     this.userService = userService;
   }
 
+  // 该接口已被拦截器拦截掉权限，无权限访问
   @ApiOperation(value = "测试接口",notes = "测试接口")
-  @PostMapping("/get/test")
+  @PostMapping("/learn/test")
   Object test(@RequestBody @Valid UserDto request){
     System.out.println(123);
     // application-dev.yml配置文件中配置了狗的属性信息
@@ -44,7 +45,7 @@ public class UserController {
   }
 
   @ApiOperation(value = "获取公司用户列表",notes = "获取公司用户列表")
-  @PostMapping("/get/users")
+  @PostMapping("/learn/users")
   Result getUsers(@RequestBody UserReq request){
     return  userService.getUsers(request);
   }

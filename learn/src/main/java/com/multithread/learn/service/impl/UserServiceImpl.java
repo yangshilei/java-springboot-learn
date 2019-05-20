@@ -1,7 +1,5 @@
 package com.multithread.learn.service.impl;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.multithread.learn.dao.UserDao;
 import com.multithread.learn.dto.UserDto;
 import com.multithread.learn.pojo.UserReq;
