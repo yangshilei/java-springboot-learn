@@ -35,7 +35,9 @@ public class UserController {
     this.userService = userService;
   }
 
-  // 该接口已被拦截器拦截掉权限，无权限访问
+  /**
+   * 该接口已被拦截器拦截掉权限，无权限访问
+   */
   @ApiOperation(value = "测试接口",notes = "测试接口")
   @PostMapping("/learn/test")
   Object test(@RequestBody @Valid UserDto request){
