@@ -21,7 +21,7 @@ import java.util.Map;
 public class RequestInterceptor implements HandlerInterceptor {
 
   /**
-   * /test 和 /user 开头的请求无需鉴权
+   * /learn/user开头的请求无需鉴权
    * @param request
    * @param response
    * @param handler
