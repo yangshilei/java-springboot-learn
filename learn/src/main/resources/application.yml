@@ -1,6 +1,18 @@
 server:
-  port: 8881
+  port: 18881
   compression:
     enabled: true
     mime-types: [application/json,text/plain]
     min-response-size: 500
+
+spring:
+  main:
+    # 允许bean定义重写
+    allow-bean-definition-overriding: true
+  application:
+    name: LEARN
+  # 启用开发环境的yml配置文件
+  profiles:
+    active: dev
+
+

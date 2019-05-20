@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -30,8 +31,10 @@ public class SwaggerConfig {
         .build();
     docket.apiInfo(apiInfo);
     //设置只生成被Api这个注解注解过的Ctrl类中有ApiOperation注解的api接口的文档
-    docket.select().apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
-        .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)).build();
+    docket.select()
+        .apis(RequestHandlerSelectors.basePackage("com.multithread.learn.controller"))
+        .paths(PathSelectors.any())
+        .build();
     return docket;
   }
 

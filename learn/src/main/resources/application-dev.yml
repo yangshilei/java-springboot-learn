@@ -1,0 +1,28 @@
+logging:
+  config: classpath:logback-spring-dev.xml
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ysl_learn?useUnicode=true&characterEncoding=utf-8&useAffectedRows=true&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: yangshilei
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 50
+      idle-timeout: 180000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+animal:
+  dog:
+    name: "tom"
+    age: 20
+    play:
+    - swim
+    - football
+    - drup

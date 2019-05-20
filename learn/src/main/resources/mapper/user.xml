@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.multithread.learn.dao.UserDao">
+
+    <!--获取用户列表-->
+    <select id="selectUsers" parameterType="java.lang.Integer"
+            resultType="com.multithread.learn.dto.UserDto">
+        SELECT * from user where company_id  = #{companyId}
+    </select>
+</mapper>
