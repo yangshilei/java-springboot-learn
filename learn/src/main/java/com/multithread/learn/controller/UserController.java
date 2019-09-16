@@ -1,4 +1,4 @@
-package com.multithread.learn.controller.springboot;
+package com.multithread.learn.controller;
 
 import com.multithread.learn.config.DogConfig;
 import com.multithread.learn.dto.UserDto;
@@ -7,7 +7,6 @@ import com.multithread.learn.service.UserService;
 import com.multithread.learn.share.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,7 @@ public class UserController {
   private final UserService userService;
 
   @Autowired
-  public UserController(DogConfig dogConfig,UserService userService){
+  public UserController(DogConfig dogConfig, UserService userService){
     this.dogConfig = dogConfig;
     this.userService = userService;
   }
