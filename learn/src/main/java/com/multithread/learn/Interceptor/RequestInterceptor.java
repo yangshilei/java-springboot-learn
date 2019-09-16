@@ -21,7 +21,7 @@ import java.util.Map;
 public class RequestInterceptor implements HandlerInterceptor {
 
   /**
-   * /test 和 /user 开头的请求无需鉴权
+   * /learn/user开头的请求无需鉴权
    * @param request
    * @param response
    * @param handler
@@ -32,13 +32,13 @@ public class RequestInterceptor implements HandlerInterceptor {
     String requestURI = request.getRequestURI();
     // 拦截，并返回拦截原因
     if(requestURI.startsWith("/learn/test")){
-      log.debug("鉴权失败，无权限的请求路径！");
+      log.debug("鉴权失败，无权限的请求路径!");
       this.err(response,request);
       return false;
     }
     // 不拦截，可通过的接口
     if(StringUtils.startsWithIgnoreCase(requestURI,"/learn/user")){
-      log.debug("鉴权失败，无权限的请求路径！");
+      log.debug("可以访问的接口!");
       return true;
     }
     return false;

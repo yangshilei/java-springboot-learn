@@ -27,8 +27,7 @@ public class InterceptorBean implements WebMvcConfigurer {
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(this.requestInterceptor())
         .addPathPatterns("/learn/**")
-        .excludePathPatterns("/learn/role",
-            "/learn/user")
+        .excludePathPatterns("/learn/user")
         .order(1);
   }
 }

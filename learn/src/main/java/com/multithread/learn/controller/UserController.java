@@ -1,4 +1,4 @@
-package com.multithread.learn.controller.springboot;
+package com.multithread.learn.controller;
 
 import com.multithread.learn.config.DogConfig;
 import com.multithread.learn.dto.UserDto;
@@ -8,10 +8,7 @@ import com.multithread.learn.share.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,7 +27,7 @@ public class UserController {
   private final UserService userService;
 
   @Autowired
-  public UserController(DogConfig dogConfig,UserService userService){
+  public UserController(DogConfig dogConfig, UserService userService){
     this.dogConfig = dogConfig;
     this.userService = userService;
   }
@@ -38,8 +35,8 @@ public class UserController {
   /**
    * 该接口已被拦截器拦截掉权限，无权限访问
    */
-  @ApiOperation(value = "测试接口",notes = "测试接口")
-  @PostMapping("/learn/test")
+  @ApiOperation(value = "测试ssssss接口",notes = "测试接口")
+  @GetMapping("/learn/test")
   Object test(@RequestBody @Valid UserDto request){
     System.out.println(123);
     // application-dev.yml配置文件中配置了狗的属性信息
