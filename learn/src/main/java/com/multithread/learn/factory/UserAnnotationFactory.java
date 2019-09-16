@@ -6,7 +6,7 @@ import com.multithread.learn.dto.UserDto;
 import java.lang.reflect.Method;
 
 /**
- * Description：
+ * Description：自定义注解的学习使用
  *
  * @Author yangshilei
  * @Date 2019-05-08 17:59
