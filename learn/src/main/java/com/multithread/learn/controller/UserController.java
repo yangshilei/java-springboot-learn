@@ -45,10 +45,14 @@ public class UserController {
 
   @ApiOperation(value = "获取公司用户列表",notes = "获取公司用户列表")
   @PostMapping("/learn/users")
-  Result getUsers(@RequestBody UserReq request){
+  Result getUsers(@RequestBody @Valid UserReq request){
     return  userService.getUsers(request);
   }
 
-
+  @ApiOperation(value = "多线程查询测试", notes = "多线程查询测试")
+  @PostMapping("/learn/user/testThreadPool")
+  Result testThreadPool(@RequestBody UserReq request){
+    return userService.testThreadPool(request);
+  }
 
 }
