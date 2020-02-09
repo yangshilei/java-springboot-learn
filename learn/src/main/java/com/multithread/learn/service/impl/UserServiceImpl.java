@@ -63,8 +63,10 @@ public class UserServiceImpl implements UserService {
     if(request.getCompanyId().equals(2)){
       log.info("多线程方法");
       CountDownLatch countDownLatch = new CountDownLatch(3);
-      ExecutorService pool = Executors.newFixedThreadPool(1);
-      pool.execute(new UserThread(request,userDao,countDownLatch));
+      ExecutorService pool = Executors.newFixedThreadPool(3);
+      for(int i =0; i<3; i++){
+        pool.execute(new UserThread(request,userDao,countDownLatch));
+      }
       try {
         countDownLatch.await();
       } catch (InterruptedException e) {

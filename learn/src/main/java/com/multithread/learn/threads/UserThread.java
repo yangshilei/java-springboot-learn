@@ -34,10 +34,8 @@ public class UserThread implements Runnable {
   public void run() {
     log.info("进入多线程实现方法中");
     Integer companyId = userReq.getCompanyId();
-    List<UserDto> userDtos = userDao.selectUsers(userReq.getCompanyId());
-    for(int i = 0; i<2;i++){
-      countDownLatch.countDown();
-    }
+    List<UserDto> userDtos = userDao.selectUsers(companyId);
+    countDownLatch.countDown();
     log.info("查询的结果==={}",userDtos.toString());
   }
 }
