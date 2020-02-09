@@ -1,8 +1,9 @@
 springboot模块学习内容：
     1.swagger2接口测试
     2.拦截器Interceptor
-    3.yml配置文件读取方式
-    4.git主次分支切换合并
+    3.sql语句打印日志的配置
+    4.yml配置文件读取方式
+    5.git主次分支切换合并
 
 
 待补充学习内容：
