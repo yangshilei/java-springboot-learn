@@ -15,6 +15,7 @@ public class HelloJob {
 
     public void hello() {
         log.info("World!" + new Date());
+        System.out.println("goog");
     }
 
 }

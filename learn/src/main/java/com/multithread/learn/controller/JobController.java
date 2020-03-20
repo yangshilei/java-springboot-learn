@@ -4,12 +4,11 @@ import com.multithread.learn.constants.CommConstants;
 import com.multithread.learn.dto.Result;
 import com.multithread.learn.pojo.ScheduleJob;
 import com.multithread.learn.service.SchedulerJobService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -29,7 +28,8 @@ public class JobController {
     /**
      * 获取所有的任务
      */
-    @RequestMapping("/getAllJobs")
+    @ApiOperation(value = "获取所有的任务",notes = "获取所有的任务")
+    @GetMapping("/getAllJobs")
     public Result getAllJobs() {
         return schedulerJobService.getAllScheduleJob();
     }
@@ -39,7 +39,8 @@ public class JobController {
      *
      * @return Result
      */
-    @RequestMapping("/getRunJob")
+    @ApiOperation(value = "获取正在执行的任务列表",notes = "获取正在执行的任务列表")
+    @GetMapping("/getRunJob")
     public Result getAllRunningJob() {
         return schedulerJobService.getAllRunningJob();
     }
@@ -49,7 +50,8 @@ public class JobController {
      *
      * @param scheduleJob 任务
      */
-    @RequestMapping("/saveOrUpdate")
+    @ApiOperation(value = "更新或者添加一个任务",notes = "更新或者添加一个任务")
+    @PostMapping("/saveOrUpdate")
     public Result addOrUpdateJob(@RequestBody ScheduleJob scheduleJob) {
         Result result = new Result(false, CommConstants.RESULT_CODE.ERROR);
         try {
@@ -62,9 +64,9 @@ public class JobController {
 
     /**
      * 运行一个任务
-     *
      */
-    @RequestMapping("/runOneJob")
+    @ApiOperation(value = "运行一个任务",notes = "运行一个任务")
+    @PostMapping("/runOneJob")
     public Result runJob(@RequestBody ScheduleJob scheduleJob) {
         Result result = new Result(false, CommConstants.RESULT_CODE.ERROR);
         try {
@@ -78,9 +80,9 @@ public class JobController {
 
     /**
      * 停止一个定时任务
-     *
      */
-    @RequestMapping("/pauseJob")
+    @ApiOperation(value = "停止一个定时任务",notes = "停止一个定时任务")
+    @PostMapping("/pauseJob")
     public Result pauseJob(@RequestBody ScheduleJob scheduleJob) {
         Result result = new Result(false, CommConstants.RESULT_CODE.ERROR);
         try {
@@ -94,10 +96,9 @@ public class JobController {
 
     /**
      * 删除一个定时任务
-     *
-     * @return Result
      */
-    @RequestMapping("/deleteJob")
+    @ApiOperation(value = "删除一个定时任务",notes = "删除一个定时任务")
+    @DeleteMapping("/deleteJob")
     public Result deleteJob(@RequestBody ScheduleJob scheduleJob) {
         Result result = new Result(true, CommConstants.RESULT_CODE.SUCCESS);
         try {
@@ -111,9 +112,9 @@ public class JobController {
 
     /**
      * 重启一个定时任务
-     *
      */
-    @RequestMapping("/resumeJob")
+    @ApiOperation(value = "重启一个定时任务",notes = "重启一个定时任务")
+    @PostMapping("/resumeJob")
     public Result resumeJob(@RequestBody ScheduleJob scheduleJob) {
         Result result = new Result(false, CommConstants.RESULT_CODE.ERROR);
         try {
