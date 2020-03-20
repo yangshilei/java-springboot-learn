@@ -3,6 +3,7 @@ package com.multithread.learn.jobs;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,8 +15,8 @@ import java.util.Date;
 public class HelloJob {
 
     public void hello() {
-        log.info("World!" + new Date());
-        System.out.println("goog");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        log.info("你好，成功打印了测试语句=====" + format.format(new Date()));
     }
 
 }

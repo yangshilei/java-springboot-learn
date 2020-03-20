@@ -36,8 +36,6 @@ public class JobController {
 
     /**
      * 获取正在执行的任务列表
-     *
-     * @return Result
      */
     @ApiOperation(value = "获取正在执行的任务列表",notes = "获取正在执行的任务列表")
     @GetMapping("/getRunJob")
@@ -47,8 +45,14 @@ public class JobController {
 
     /**
      * 更新或者添加一个任务
-     *
-     * @param scheduleJob 任务
+     * {
+     *     "jobName":"发大发",
+     *     "jobGroup":"发发发",
+     *     "beanName":"sss",
+     *     "methodName":"ssss",
+     *     "cronExpression":"* 3/5 * * * ? *",
+     *     "description":"fadfafaf"
+     * }
      */
     @ApiOperation(value = "更新或者添加一个任务",notes = "更新或者添加一个任务")
     @PostMapping("/saveOrUpdate")
@@ -64,6 +68,10 @@ public class JobController {
 
     /**
      * 运行一个任务
+     * {
+     *     "jobName":"hello",
+     *     "jobGroup":"001"
+     * }
      */
     @ApiOperation(value = "运行一个任务",notes = "运行一个任务")
     @PostMapping("/runOneJob")
@@ -96,6 +104,10 @@ public class JobController {
 
     /**
      * 删除一个定时任务
+     * {
+     *     "jobName":"hello",
+     *     "jobGroup":"001"
+     * }
      */
     @ApiOperation(value = "删除一个定时任务",notes = "删除一个定时任务")
     @DeleteMapping("/deleteJob")
