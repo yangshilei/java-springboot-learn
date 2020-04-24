@@ -18,8 +18,8 @@ import javax.sql.DataSource;
 /**
  * quartz定时任务配置
  */
-@Configuration
-@EnableScheduling
+//@Configuration
+//@EnableScheduling
 public class QuartzConfiguration {
     /**
      * 配置任务工厂实例
