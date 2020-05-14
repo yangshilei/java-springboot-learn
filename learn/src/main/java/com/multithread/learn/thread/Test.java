@@ -29,24 +29,24 @@ public class Test implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        while (true){
-            String xx = "";
-            if(StringUtils.isEmpty(xx)){
-                continue;
-            }
-
-            log.info("开始添加任务");
-            List<Callable<Void>> tasks = new ArrayList<>();
-            tasks.add(() -> {
-                System.out.println("开始添加任务");
-                return null;
-            });
-
-            log.info("开始执行任务");
-            Thread.sleep(1000);
-
-            executorService.invokeAll(tasks);
-        }
+//        while (true){
+//            String xx = "";
+//            if(StringUtils.isEmpty(xx)){
+//                continue;
+//            }
+//
+//            log.info("开始添加任务");
+//            List<Callable<Void>> tasks = new ArrayList<>();
+//            tasks.add(() -> {
+//                System.out.println("开始添加任务");
+//                return null;
+//            });
+//
+//            log.info("开始执行任务");
+//            Thread.sleep(1000);
+//
+//            executorService.invokeAll(tasks);
+//        }
     }
 
 
