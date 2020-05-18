@@ -12,5 +12,10 @@ public interface UserService {
    */
   Result getUsers(UserReq companyId);
 
-
+  /**
+   * 多线程查询测试
+   * @param request
+   * @return
+   */
+  Result testThreadPool( UserReq request);
 }

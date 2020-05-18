@@ -27,6 +27,7 @@ public class UserReq {
   @Email(message = "邮件地址不符合要求")
   private String email;
 
+  @ApiModelProperty(value = "所属企业id")
   @NotNull
   private Integer companyId;
 
