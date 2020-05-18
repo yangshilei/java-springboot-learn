@@ -2,6 +2,7 @@ package com.multithread.learn.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -478,5 +479,85 @@ public class RedisUtil {
             return 0;
         }
     }
+
+    // *************************zset*************************
+    /**
+     * @param key   1
+     * @param value 2
+     * @param score 3
+     * @Description:zset,创建key及初始分数
+     */
+    public boolean zAdd(String key, Object value, Integer score) {
+        try {
+            redisTemplate.opsForZSet().add(key, value, Double.valueOf(score));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * @Description: zset 给定key，增加score
+     * @Date:2020-04-06
+     * @param key 1
+     * @param val 2
+     * @param score 3
+     */
+    public boolean zAddScore(String key, Object val, Integer score){
+        try {
+            redisTemplate.opsForZSet().incrementScore(key, val, Double.valueOf(score));
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Set<ZSetOperations.TypedTuple<Object>> zRankByRange(String key, Integer start, Integer end){
+        try {
+            Set<ZSetOperations.TypedTuple<Object>> typedTuples = redisTemplate.opsForZSet().rangeWithScores(key, start, end);
+            return typedTuples;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * @Author Lee
+     * @Description: 删除给定key的给定范围内的值，如果begin,end传null则删除当前key
+     * @Date:2020-04-06
+     * @param key 1
+     * @param begin 2
+     * @param end 3
+     */
+    public boolean zDelKey(String key, Integer begin, Integer end){
+        try {
+            if (begin == null && end == null){
+                redisTemplate.opsForZSet().remove(key);
+            }else {
+                redisTemplate.opsForZSet().removeRange(key, begin, end);
+            }
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * @Author Lee
+     * @Description: 将前两个key下的值合并到第三个curKey中
+     * @Date:2020-04-06
+     * @param curKey 1
+     * @param yesterKey 2
+     * @param beforeKey 3
+     * @Return: void
+     */
+    public void zUniodAndStore(String beforeKey, String yesterKey, String curKey){
+        redisTemplate.opsForZSet().unionAndStore(beforeKey, yesterKey, curKey);
+    }
+
 
 }
