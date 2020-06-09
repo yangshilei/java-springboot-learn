@@ -24,7 +24,6 @@ public class ReflexServiceImpl implements ReflexService {
             Class<?> c = Class.forName(name);
             log.info("获取的类=={}",c.getSimpleName());
             UserReq userReq = (UserReq)SpringContextHolder.getBean(c);
-            log.info("获取bean结束==={}",userReq);
             userReq.setName("yangshilei");
             return Result.ok(userReq);
         } catch (ClassNotFoundException e) {

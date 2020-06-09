@@ -2,6 +2,7 @@ package com.multithread.learn;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.multithread.learn.pojo.UserReq;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,5 +23,10 @@ public class LearnApplication {
 	@Bean
 	public Gson gson() {
 		return new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+	}
+
+	@Bean
+	public UserReq getUserReq(){
+		return new UserReq();
 	}
 }
