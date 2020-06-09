@@ -14,6 +14,7 @@ import java.util.Map;
  * @Author ：yangshilei
  * @Date ：2020/6/9 10:04
  * @Description：java 硬编码方式 获取spring bean
+ * 注意：需要通过该工具类动态获取的bean需要配置到主类或者BeanConfig配置类中；
  */
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
