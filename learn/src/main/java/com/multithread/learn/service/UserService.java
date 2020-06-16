@@ -18,4 +18,10 @@ public interface UserService {
    * @return
    */
   Result testThreadPool( UserReq request);
+
+  /**
+   * 测试restTemplate查询天气接口
+   * @return
+   */
+  Result testRestTemplate();
 }

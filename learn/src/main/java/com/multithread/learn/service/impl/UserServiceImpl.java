@@ -8,7 +8,9 @@ import com.multithread.learn.share.Result;
 import com.multithread.learn.threads.UserThread;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +29,12 @@ public class UserServiceImpl implements UserService {
 
   private final UserDao userDao;
 
+  private RestTemplate restTemplate;
+
   @Autowired
-  public UserServiceImpl(UserDao userDao){
+  public UserServiceImpl(UserDao userDao,RestTemplate restTemplate){
     this.userDao = userDao;
+    this.restTemplate = restTemplate;
   }
 
 
@@ -78,4 +83,18 @@ public class UserServiceImpl implements UserService {
     }
     return Result.ok("测试成功！");
   }
+
+  /**
+   * 测试restTemplate查询天气接口
+   * @return
+   */
+  @Override
+  public Result testRestTemplate() {
+    log.info("进入测试restTemplate发送消息方法");
+    String url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101280601";
+    ResponseEntity<String> forEntity = restTemplate.getForEntity(url,String.class);
+    log.info("响应的结果==={}",forEntity);
+    return Result.ok(forEntity);
+  }
+
 }

@@ -3,6 +3,10 @@ package com.multithread.learn.config;
 import com.multithread.learn.pojo.UserReq;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * @Author ：yangshilei
@@ -11,8 +15,14 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class BeanConfig {
+
+	/**
+	 * 需要通过反射能获取到执行的类，必须先配置bean，否则无法找到对应bean的存在；
+	 * @return
+	 */
     @Bean
 	public UserReq getUserReq(){
 		return new UserReq();
 	}
+
 }

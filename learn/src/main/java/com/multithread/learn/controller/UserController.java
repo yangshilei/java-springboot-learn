@@ -55,4 +55,11 @@ public class UserController {
     return userService.testThreadPool(request);
   }
 
+
+  @ApiOperation(value = "测试restTemplate查询天气接口",notes = "测试restTemplate查询天气接口")
+  @GetMapping("/test/restTemplate")
+  Result testRestTemplate(){
+    return userService.testRestTemplate();
+  }
+
 }
