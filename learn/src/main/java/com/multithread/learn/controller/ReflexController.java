@@ -22,7 +22,7 @@ public class ReflexController {
     @Autowired
     private ReflexService reflexService;
 
-    @ApiOperation(value = "测试context获取bean",notes = "测试context获取bean")
+    @ApiOperation(value = "测试通过反射再context中获取bean",notes = "测试通过反射再context中获取bean")
     @GetMapping("/get/bean")
     Result getBean(){
         return reflexService.getBean();
