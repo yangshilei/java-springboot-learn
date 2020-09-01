@@ -24,4 +24,12 @@ public interface UserService {
    * @return
    */
   Result testRestTemplate();
+
+  /**
+   * 测试@PostConstruct注解初始数据功能
+   */
+  void createMap();
+
+  Result getMapObject();
+
 }

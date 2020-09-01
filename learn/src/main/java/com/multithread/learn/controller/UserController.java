@@ -62,4 +62,10 @@ public class UserController {
     return userService.testRestTemplate();
   }
 
+  @ApiOperation(value = "测试@PostConstruct注解功能",notes = "PostConstruct注解功能")
+  @PostMapping("/test/postconstruct")
+  Result getConstructInfo(){
+    return userService.getMapObject();
+  }
+
 }

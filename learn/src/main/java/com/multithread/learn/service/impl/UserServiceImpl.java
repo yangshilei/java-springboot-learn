@@ -12,8 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -97,4 +97,33 @@ public class UserServiceImpl implements UserService {
     return Result.ok(forEntity);
   }
 
+
+  private Map<String,String> initMap;
+
+  /**
+   * 用@PostConstruct初始化一个map集合，并模拟封装一些初始化值；
+   */
+  @PostConstruct
+  @Override
+  public void createMap(){
+    log.info("开始初始化map对象值");
+    initMap = new HashMap<>();
+    initMap.put("name","yangshilei");
+    initMap.put("age","23");
+    initMap.put("hubby","games");
+    log.info("初始化之后的值==={}",initMap.toString());
+    return;
+  }
+
+  /**
+   * 查询初始数据的接口
+   * @return
+   */
+  @Override
+  public Result getMapObject(){
+    log.info("进入获取初始值的方法");
+    Set<String> strings = initMap.keySet();
+    log.info("集合中的键值集合==={}",strings);
+    return Result.ok(initMap);
+  }
 }
