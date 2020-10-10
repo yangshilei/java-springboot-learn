@@ -6,6 +6,7 @@ import com.multithread.learn.pojo.UserReq;
 import com.multithread.learn.service.UserService;
 import com.multithread.learn.share.Result;
 import com.multithread.learn.threads.UserThread;
+import com.multithread.learn.util.MyPropertiesUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -125,5 +126,10 @@ public class UserServiceImpl implements UserService {
     Set<String> strings = initMap.keySet();
     log.info("集合中的键值集合==={}",strings);
     return Result.ok(initMap);
+  }
+
+  public static void main(String[] args) {
+    String name = MyPropertiesUtil.getValue("name");
+    System.out.println(name);
   }
 }
