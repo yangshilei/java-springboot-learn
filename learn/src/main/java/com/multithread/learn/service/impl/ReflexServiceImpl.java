@@ -25,7 +25,11 @@ public class ReflexServiceImpl implements ReflexService {
             log.info("获取的类=={}",c.getSimpleName());
             UserReq userReq = (UserReq)SpringContextHolder.getBean(c);
             userReq.setName("yangshilei");
+            userReq.setAge(18);
+            userReq.setEmail("xxxxx@qq.com");
+            userReq.setCompanyId(12);
             return Result.ok(userReq);
+
         } catch (ClassNotFoundException e) {
             log.error("Class获取类错误异常==={}",e);
         }
